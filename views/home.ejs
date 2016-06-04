@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include partials/header.ejs %>
+  </head>
+  <body>
+    <% include partials/navbar.ejs %>
+
+    <div id="hero-image">
+      <h1 id="hero-title"><%= title %></h1>
+    </div>
+
+    <div id="posters-wrapper" class="content-padding clearfix">
+      <% for(var i=0; i<movies.length; i++) {%>
+        <a href="/star_wars_episode/<%= movies[i].episode_number %>">
+        <div class="poster">
+          <img src="/images/<%= movies[i].poster %>" class="img-responsive">
+          <div class="poster-info-overlay">
+            <h3><%= movies[i].title%></h3>
+            <h4>View More <i class="fa fa-arrow-right"></i></h4>
+          </div>
+        </div>
+        </a>
+      <% } %>
+    </div>
+
+    <% include partials/footer.ejs %>
+    <% include partials/script.ejs %>
+  </body>
+</html>
